@@ -152,6 +152,13 @@ import { notFoundHandler, errorHandler } from './middleware/errorHandler.js';
 export function createApp() {
   const app = express();
 
+  app.get('/test', (req, res) => {
+  res.json({
+    success: true,
+    message: 'THIS IS THE LATEST BACKEND CODE'
+  });
+});
+
   // Trust Render's proxy
   app.set('trust proxy', 1);
 
