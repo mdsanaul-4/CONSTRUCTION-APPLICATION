@@ -168,16 +168,15 @@ export function createApp() {
   // =========================
   // CORS CONFIGURATION
   // =========================
-  const corsOptions = {
+ const corsOptions = {
   origin: true,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
-
-
-  app.use(cors(corsOptions));
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
   // =========================
   // BODY PARSING
