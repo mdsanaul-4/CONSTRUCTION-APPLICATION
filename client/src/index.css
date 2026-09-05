@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Archivo", "Inter", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  /* Steel & concrete: the working palette of a job site. */
+  --color-steel-950: #101820;
+  --color-steel-900: #16212c;
+  --color-steel-800: #1e2f3d;
+  --color-steel-700: #2b4560;
+  --color-steel-600: #3a5a7a;
+  --color-steel-100: #dde6ee;
+
+  --color-concrete-50: #f6f4ef;
+  --color-concrete-100: #efece3;
+  --color-concrete-200: #ddd8ca;
+
+  --color-ink-900: #211d17;
+  --color-ink-600: #55503f;
+  --color-ink-400: #8a8371;
+
+  --color-safety-500: #e8590c;
+  --color-safety-600: #c6480a;
+  --color-safety-100: #fde6d6;
+
+  --color-signal-green: #3f7d45;
+  --color-signal-green-100: #e2efe1;
+  --color-signal-amber: #b8860b;
+  --color-signal-amber-100: #f6ecd2;
+  --color-signal-rust: #b3412a;
+  --color-signal-rust-100: #f5dfd8;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+  }
+
+  body {
+    background-color: var(--color-concrete-50);
+    color: var(--color-ink-900);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  ::selection {
+    background-color: var(--color-safety-100);
+  }
+
+  /* Visible keyboard focus everywhere, per accessibility floor. */
+  :focus-visible {
+    outline: 2px solid var(--color-safety-500);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    background-color: white;
+    border: 1px solid var(--color-concrete-200);
+    border-radius: 6px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 120ms ease, border-color 120ms ease;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background-color: var(--color-safety-500);
+    color: white;
+  }
+  .btn-primary:hover {
+    background-color: var(--color-safety-600);
+  }
+
+  .btn-secondary {
+    background-color: white;
+    border: 1px solid var(--color-concrete-200);
+    color: var(--color-ink-900);
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-steel-700);
+  }
+
+  .btn-danger {
+    background-color: var(--color-signal-rust-100);
+    color: var(--color-signal-rust);
+  }
+  .btn-danger:hover {
+    background-color: #ecc9bf;
+  }
+
+  .input {
+    width: 100%;
+    border: 1px solid var(--color-concrete-200);
+    border-radius: 4px;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.9rem;
+    background-color: white;
+    color: var(--color-ink-900);
+  }
+  .input:focus {
+    border-color: var(--color-steel-700);
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-steel-100);
+  }
+
+  .label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-ink-600);
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+}
