@@ -162,39 +162,13 @@ export function createApp() {
   // CORS CONFIGURATION
   // =========================
   const corsOptions = {
-    origin: (origin, callback) => {
-      // Allow requests without an Origin header
-      // (Postman, server-to-server requests, health checks, etc.)
-      if (!origin) {
-        return callback(null, true);
-      }
+  origin: true,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
 
-      try {
-        const url = new URL(origin);
 
-        const isLocalhost =
-          url.hostname === 'localhost' ||
-          url.hostname === '127.0.0.1';
-
-        const isVercel =
-          url.hostname.endsWith('.vercel.app');
-
-        if (isLocalhost || isVercel) {
-          return callback(null, true);
-        }
-
-        return callback(
-          new Error(`CORS blocked: ${origin}`)
-        );
-      } catch {
-        return callback(
-          new Error(`Invalid origin: ${origin}`)
-        );
-      }
-    },
-
-    credentials: true,
-  };
 
   app.use(cors(corsOptions));
 
