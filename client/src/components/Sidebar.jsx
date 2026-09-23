@@ -53,7 +53,7 @@ export default function Sidebar({ companyName, open, onClose }) {
               onClick={onClose}
               className={({ isActive }) =>
                 `flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium mb-1 transition-colors ${
-                  isActive ? 'bg-safety-500 text-white' : 'text-steel-100/80 hover:bg-white/5 hover:text-white'
+                  isActive ? 'bg-blue-500 text-white' : 'text-steel-100/80 hover:bg-white/5 hover:text-white'
                 }`
               }
             >

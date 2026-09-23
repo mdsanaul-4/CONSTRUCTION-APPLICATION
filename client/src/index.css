@@ -87,11 +87,11 @@
   }
 
   .btn-primary {
-    background-color: var(--color-safety-500);
+    background-color: var(--color-blue-500);
     color: white;
   }
   .btn-primary:hover {
-    background-color: var(--color-safety-600);
+    background-color: var(--color-blue-600);
   }
 
   .btn-secondary {
